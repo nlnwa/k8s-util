@@ -4,7 +4,7 @@ DOCKER_IMAGE ?= norsknettarkiv/k8s-util
 DOCKER_TAG ?= `git rev-parse --abbrev-ref HEAD`
 VCS_REF ?= `git rev-parse --short HEAD`
 BUILD_DATE ?= `date -u +"%Y-%m-%dT%H:%M:%SZ"`
-DEPENDENCIES ?= ca-certificates git openssl curl jq
+DEPENDENCIES ?= ca-certificates git openssh curl jq
 
 docker_build:
 	@docker build \
