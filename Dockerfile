@@ -19,7 +19,7 @@ ARG KUBE_LATEST_VERSION="v1.12.0"
 
 # Note: Latest version of helm may be found at:
 # https://github.com/kubernetes/helm/releases
-ARG HELM_VERSION="v2.11.0"
+ARG HELM_VERSION="v2.12.2"
 
 # Note: Latest version of namerctl may be found at:
 # https://github.com/linkerd/namerctl/releases
