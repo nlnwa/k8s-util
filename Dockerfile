@@ -12,10 +12,18 @@ RUN wget ${KUBECTL} \
 ARG HELM_VERSION="v3.10.3"
 ENV HELM="https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz"
 
+
 # Install helm
 RUN wget ${HELM} \
     && tar xvzf helm-${HELM_VERSION}-linux-amd64.tar.gz \
     && install linux-amd64/helm /usr/local/bin
+
+ARG VEIDEMANNCTL_VERSION=0.4.1
+ENV VEIDEMANNCTL="https://github.com/nlnwa/veidemannctl/releases/download/v${VEIDEMANNCTL_VERSION}/veidemannctl_${VEIDEMANNCTL_VERSION}_linux_amd64"
+
+# Install veidemannctl
+RUN wget -o veidemannctl ${VEIDEMANNCTL} \
+    && install veidemannctl /usr/local/bin/veidemannctl
 
 FROM alpine:3.17
 
@@ -23,3 +31,4 @@ LABEL maintainer="Marius André Elsfjordstrand Beck <marius.beck@nb.no>"
 
 COPY --from=build /usr/local/bin/kubectl /usr/local/bin/kubectl
 COPY --from=build /usr/local/bin/helm /usr/local/bin/helm
+COPY --from=build /usr/local/bin/veidemannctl /usr/local/bin/veidemannctl

@@ -5,3 +5,4 @@
 Vanilla alpine docker image with:
 - helm
 - kubectl
+- veidemannctl
