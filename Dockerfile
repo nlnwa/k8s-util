@@ -4,14 +4,14 @@ WORKDIR /tmp
 
 # Install kubectl, see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 # Release info is found at: https://github.com/kubernetes/kubectl/releases
-ARG KUBECTL_VERSION="v1.22.17"
+ARG KUBECTL_VERSION="v1.25.8"
 ENV KUBECTL="https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
 ADD ${KUBECTL} .
 RUN install kubectl /usr/local/bin
 
 # Install helm
 # Release info is found at: https://github.com/helm/helm/releases
-ARG HELM_VERSION="v3.10.3"
+ARG HELM_VERSION="v3.11.2"
 ENV HELM="https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz"
 ADD ${HELM} .
 RUN tar xvzf helm-${HELM_VERSION}-linux-amd64.tar.gz \
